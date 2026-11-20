@@ -40,7 +40,7 @@ export default function Home() {
       {/* Elemen audio diletakkan di luar kondisi agar siap diputar saat klik terakhir */}
       <audio
         ref={audioRef}
-        src="/tattooed-heart.mp3"
+        src="/tattoed-heart.mp3"
         loop
         preload="auto"
         className="hidden"
