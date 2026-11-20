@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useRef, useEffect } from 'react';
+import { useState, useRef } from 'react';
 import DomeGallery from '@/components/DomeGallery';
 import InteractionFlow from '@/components/InteractionFlow';
 
@@ -25,31 +25,6 @@ export default function Home() {
     '/14.jpeg',
     '/15.jpeg',
   ];
-
-  // Hentikan audio otomatis saat keluar dari browser, pindah tab, atau layar mati
-  useEffect(() => {
-    const pauseAudio = () => {
-      if (audioRef.current && !audioRef.current.paused) {
-        audioRef.current.pause();
-      }
-    };
-
-    const handleVisibilityChange = () => {
-      if (document.hidden) {
-        pauseAudio();
-      }
-    };
-
-    document.addEventListener('visibilitychange', handleVisibilityChange);
-    window.addEventListener('pagehide', pauseAudio);
-    window.addEventListener('blur', pauseAudio);
-
-    return () => {
-      document.removeEventListener('visibilitychange', handleVisibilityChange);
-      window.removeEventListener('pagehide', pauseAudio);
-      window.removeEventListener('blur', pauseAudio);
-    };
-  }, []);
 
   const handleFlowComplete = () => {
     setShowGallery(true);
