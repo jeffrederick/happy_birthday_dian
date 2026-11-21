@@ -5,7 +5,7 @@ import DomeGallery from '@/components/DomeGallery';
 import InteractionFlow from '@/components/InteractionFlow';
 
 export default function Home() {
-  const [showGallery, setShowGallery] = useState(false);
+  const [showGallery, setShowGallery] = useState(true);
   const audioRef = useRef<HTMLAudioElement | null>(null);
 
   const userImages = [
